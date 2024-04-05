@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Roulette Game</title>
+    <style>
+        /* CSS styles for the roulette game */
+        /* Add your CSS styles here */
+        .roulette-wheel {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+
+        .betting-options {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #spin-btn {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="roulette-game">
+        <div class="roulette-wheel"></div>
+        <div class="betting-options">
+            <!-- Betting options will go here -->
+        </div>
+        <button id="spin-btn">Spin</button>
+    </div>
+
+    <script>
+        // JavaScript logic for the roulette game
+        document.addEventListener('DOMContentLoaded', function() {
+            const spinBtn = document.getElementById('spin-btn');
+            const rouletteWheel = document.querySelector('.roulette-wheel');
+
+            const colors = ['red', 'black', 'green'];
+
+            // Function to generate a random result
+            function spinWheel() {
+                const result = Math.floor(Math.random() * 37); // 0 to 36
+
+                // Update UI based on the result
+                rouletteWheel.style.backgroundColor = colors[result % 3]; // Green for 0, red for odd, black for even
+            }
+
+            // Event listener for the spin button
+            spinBtn.addEventListener('click', function() {
+                spinWheel();
+            });
+        });
+    </script>
+</body>
+</html>
